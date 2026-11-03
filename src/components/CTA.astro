@@ -1,0 +1,26 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  buttonText: string;
+  buttonHref?: string;
+  headingSize?: string;
+}
+
+const { eyebrow, heading, buttonText, buttonHref = '/contact/', headingSize = '40' } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0" style="background:linear-gradient(130deg, #3296ff 0%, #003174 100%)"></div>
+  <div class="relative max-w-[1200px] mx-auto px-6 pt-[80px] pb-[80px] text-center">
+    <h3 class="font-condensed uppercase tracking-[4px] text-[14px] md:text-[20px] font-normal text-white mb-3">{eyebrow}</h3>
+    <h2 class:list={['font-normal text-white mb-8', headingSize === '38' ? 'text-[34px] md:text-[38px]' : 'text-[34px] md:text-[40px]']}>{heading}</h2>
+    <a
+      href={buttonHref}
+      class="inline-flex items-center gap-3 border-2 border-white text-white text-lg rounded-full px-6 py-2 hover:bg-white hover:text-[#3296ff] transition-colors"
+    >
+      <span>{buttonText}</span>
+      <svg class="w-5 h-5" viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+    </a>
+  </div>
+</section>

@@ -1,11 +1,99 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Base from '../layouts/Base.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import CTA from '../components/CTA.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const arrow = `<svg class="w-5 h-5" viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>`;
+const quote = `<svg class="w-5 h-5" viewBox="0 0 8 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 0c-1.65 0-3 1.35-3 3v3h3v-3h-2c0-1.11.89-2 2-2v-1zm5 0c-1.65 0-3 1.35-3 3v3h3v-3h-2c0-1.11.89-2 2-2v-1z" transform="translate(0 1)"/></svg>`;
+
+const sep = (fill: string) =>
+  `<svg viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-full block" aria-hidden="true"><path d="M1000,0l-1000,100l1000,0l0,-100Z" fill="${fill}"></path></svg>`;
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<Base title="Cabinet Conta" canonical="https://cabinetconta.ro/">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(130deg, #3296ff 0%, #003174 100%)"></div>
+    <div class="relative max-w-[1200px] mx-auto px-6 pt-[200px] pb-[150px] text-center">
+      <h3 class="font-condensed uppercase tracking-[4px] text-[14px] md:text-[20px] font-normal text-white">Firma de Contabilitate</h3>
+      <h1 class="mt-2 text-[40px] md:text-[50px] font-normal text-white leading-tight">Oferim Servicii De Contabilitate</h1>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-3 border-2 border-white text-white text-[20px] rounded-full px-6 py-2.5 hover:bg-white hover:text-[#3296ff] transition-colors"
+        >
+          <span>Contact</span>
+          <Fragment set:html={arrow} />
+        </a>
+        <a href="/services/servicii-contabilitate/" class="text-white text-[20px] px-6 py-2.5 hover:text-[#edf2f7] transition-colors">Servicii</a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[100px]"><Fragment set:html={sep('#1a202c')} /></div>
+  </section>
+
+  <!-- Contabilitate la Zi -->
+  <section class="relative bg-[#1a202c]">
+    <div class="max-w-[1400px] mx-auto px-6 pt-[80px] pb-[80px] grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-10 items-center">
+      <div>
+        <img src="/wp-content/uploads/2020/05/hero-graphic.png" alt="" width="941" height="907" class="w-full h-auto" loading="lazy" />
+      </div>
+      <div>
+        <h2 class="text-[32px] font-bold text-[#3296ff] mb-4">Contabilitate la Zi</h2>
+        <h4 class="text-lg font-normal text-[#f7fafc] mb-8">Servicii de contabilitate complete pentru firma dumeavoastra.</h4>
+        <a href="#" class="inline-flex items-center gap-3 border-2 border-[#3296ff] text-[#3296ff] text-[20px] rounded-full px-6 py-2.5 hover:bg-[#3296ff] hover:text-white transition-colors">
+          <span>Mai Multe Detalii</span>
+          <Fragment set:html={arrow} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicii -->
+  <section class="relative bg-[#252c39]">
+    <div class="absolute top-0 left-0 right-0 h-[100px]"><Fragment set:html={sep('#1a202c')} /></div>
+    <div class="relative max-w-[1200px] mx-auto px-6 pt-[160px] pb-[160px]">
+      <div class="text-center mb-16">
+        <h3 class="font-condensed uppercase tracking-[4px] text-[14px] md:text-[20px] font-normal text-[#3296ff] mb-3">Servicii</h3>
+        <h2 class="text-[30px] md:text-[38px] font-bold text-white">Cum Te Putem Ajuta</h2>
+      </div>
+      <ServiceGrid />
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[100px]"><Fragment set:html={sep('#1a202c')} /></div>
+  </section>
+
+  <!-- Testimoniale -->
+  <section class="relative bg-[#252c39]">
+    <div class="absolute top-0 left-0 right-0 h-[100px]"><Fragment set:html={sep('#1a202c')} /></div>
+    <div class="relative max-w-[1200px] mx-auto px-6 pt-[160px] pb-[80px]">
+      <div class="text-center mb-20">
+        <h3 class="font-condensed uppercase tracking-[4px] text-[14px] md:text-[20px] font-normal text-[#3296ff] mb-3">Clienti Fericiti</h3>
+        <h2 class="text-[30px] md:text-[38px] font-normal text-white">Ce Spun Clienti Nostri</h2>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-16">
+        <div>
+          <div class="relative bg-[#2d3748] rounded-[10px] p-8 pt-12 text-center">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#1a202c] border border-[#2d3748] text-[#3296ff] flex items-center justify-center"><Fragment set:html={quote} /></div>
+            <blockquote class="text-[#f7fafc] leading-relaxed">Lucrez cu Cabinet Conta pentru firma mea, Bitdoze Web Cons, de peste 10 ani, încă de la înființare. Serviciile oferite de Cabinet Conta sunt impecabile: declarațiile sunt depuse la timp, consultanța pentru noile modificări este rapidă, iar contabilitatea este actualizată și bine organizată. Recomand cu încredere Cabinet Conta tuturor celor care au nevoie de un contabil pentru firma lor.</blockquote>
+            <div class="absolute left-1/2 -translate-x-1/2 -bottom-[14px] w-0 h-0 border-l-[14px] border-r-[14px] border-t-[16px] border-l-transparent border-r-transparent border-t-[#2d3748]"></div>
+          </div>
+          <div class="text-center mt-6">
+            <div class="text-[#f7fafc] font-semibold">Dragos Balota</div>
+            <div class="text-sm text-[#cbd2d9]">Co-Founder of Bitdoze Web Cons</div>
+          </div>
+        </div>
+        <div>
+          <div class="relative bg-[#2d3748] rounded-[10px] p-8 pt-12 text-center">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#1a202c] border border-[#2d3748] text-[#3296ff] flex items-center justify-center"><Fragment set:html={quote} /></div>
+            <blockquote class="text-[#f7fafc] leading-relaxed">Sunt ok, lucrez de mult cu ei. Recomand.</blockquote>
+            <div class="absolute left-1/2 -translate-x-1/2 -bottom-[14px] w-0 h-0 border-l-[14px] border-r-[14px] border-t-[16px] border-l-transparent border-r-transparent border-t-[#2d3748]"></div>
+          </div>
+          <div class="text-center mt-6">
+            <div class="text-[#f7fafc] font-semibold">Iulian Gogan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA eyebrow="Nu mai Astepta" heading="Contactati-ne Pentru Consultanta" buttonText="Sunt Pregatit" headingSize="38" />
+</Base>

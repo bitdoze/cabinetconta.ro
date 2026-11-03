@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<Base title="Servicii – Cabinet Conta" canonical="https://cabinetconta.ro/services/">
+  <Hero heading="Servicii" headingTag="h1" />
+  <section class="bg-[#1a202c]">
+    <div class="max-w-[1200px] mx-auto px-6 py-20">
+      <div class="text-center mb-16">
+        <h3 class="font-condensed uppercase tracking-[4px] text-[16px] md:text-[20px] font-normal text-[#3296ff] mb-3">Servicii Complete de contabilitate</h3>
+        <h2 class="text-[30px] md:text-[38px] leading-[44px] font-normal text-white mb-[30px]">Servicii Care Te Vor Ajuta Sa Reusesti.</h2>
+      </div>
+      <ServiceGrid />
+    </div>
+  </section>
+  <CTA eyebrow="Nu Astepta" heading="Contactatine" buttonText="Contact" />
+</Base>

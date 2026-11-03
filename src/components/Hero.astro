@@ -1,0 +1,39 @@
+---
+interface Props {
+  heading: string;
+  headingTag?: 'h1' | 'h2';
+  bold?: boolean;
+  bgImage?: string;
+  overlayOpacity?: number;
+  sepColor?: string;
+}
+
+const {
+  heading,
+  headingTag = 'h1',
+  bold = false,
+  bgImage,
+  overlayOpacity = 1,
+  sepColor = '#1a202c',
+} = Astro.props;
+
+const Tag = headingTag;
+---
+
+<section class="relative overflow-hidden">
+  {bgImage && (
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url('${bgImage}')`}></div>
+  )}
+  <div
+    class="absolute inset-0"
+    style={`opacity:${overlayOpacity};background:linear-gradient(130deg, #3296ff 0%, #003174 100%)`}
+  ></div>
+  <div class="relative max-w-[1200px] mx-auto px-6 pt-[150px] pb-[150px] text-center">
+    <Tag class:list={['text-white text-[40px] md:text-[50px] leading-tight', bold ? 'font-bold' : 'font-normal']}>{heading}</Tag>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-[100px]">
+    <svg viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-full block" aria-hidden="true">
+      <path d="M1000,0l-1000,100l1000,0l0,-100Z" fill={sepColor}></path>
+    </svg>
+  </div>
+</section>

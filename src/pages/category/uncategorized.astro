@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const posts = [
+  {
+    title: 'Actualizare coduri CAEN la Rev. 3: Termen stabilit de Guvern',
+    href: '/actualizare-coduri-caen-la-rev-3-termen-stabilit-de-guvern/',
+    date: 'martie 21, 2025',
+    excerpt:
+      'Guvernul a stabilit un termen de 18 luni pentru ca firmele și PFA-urile să implementeze versiunea CAEN Rev. 3, începând de la publicarea hotărârii în Monitorul Oficial. Până atunci, vor fi acceptate atât CAEN Rev. 3, cât și versiunea precedentă. Decizia vizează 1,7 milioane de profesioniști și are scopul de a reduce presiunea administrativă asupra…',
+  },
+  {
+    title: 'Impozitul pe Microîntreprindere vs. Impozitul pe Profit: Alegerea Corectă pentru Firma Ta',
+    href: '/cine-poate-opta-pentru-impozitul-pe-microintreprindere/',
+    date: 'martie 17, 2025',
+    excerpt:
+      'Atunci când vine vorba de alegerea regimului fiscal potrivit, antreprenorii trebuie să analizeze cu atenție avantajele și obligațiile fiecărei opțiuni. În acest articol, echipa cabinetconta.ro îți explică cine poate opta pentru impozitul pe microîntreprindere, cine trebuie să plătească impozit pe profit, ce cheltuieli sunt deductibile și cum poți face trecerea între cele două sisteme. Cine…',
+  },
+  {
+    title: 'Declatatia 406 / SAF-T, cine depune ?',
+    href: '/declatatia-406-saf-t-cine-depune/',
+    date: 'septembrie 27, 2024',
+    excerpt:
+      'Declarația 406 / SAF-T Obligația de a depune declarația 406 revine companiilor mari din România, urmând ca, treptat, să fie extinsă și la companiile medii și mici. Datele se transmit într-un format XML, iar conformitatea este esențială pentru evitarea sancțiunilor. Acest tip de raportare oferă ANAF un instrument puternic de monitorizare și analiză automată, reducând…',
+  },
+];
+---
+
+<Base title="Uncategorized – Cabinet Conta" canonical="https://cabinetconta.ro/category/uncategorized/">
+  <section class="bg-[#1a202c]">
+    <div class="max-w-[1200px] mx-auto px-6 pt-[160px] pb-8">
+      <h1 class="text-4xl md:text-[45px] font-bold text-white">Uncategorized</h1>
+    </div>
+    <div class="max-w-[1200px] mx-auto px-6 pb-20 space-y-10">
+      {posts.map((post) => (
+        <article class="bg-[#252c39] rounded-lg overflow-hidden shadow-[0_15px_15px_-10px_rgba(0,0,0,0.05)]">
+          <div class="p-8">
+            <h2 class="text-2xl font-bold text-white mb-3">
+              <a href={post.href} class="hover:text-[#3296ff] transition-colors">{post.title}</a>
+            </h2>
+            <div class="text-sm text-[#cbd2d9] mb-4">By <span class="text-[#3296ff]">admin</span> {post.date}</div>
+            <p class="text-[#edf2f7] leading-relaxed mb-4">{post.excerpt}</p>
+            <p>
+              <a href={post.href} class="text-[#3296ff] font-semibold hover:underline">Citeste mai mult<svg class="inline-block w-[20px] h-[20px] -mt-0.5" viewBox="0 0 27 28" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M27 13.953c0 0.141-0.063 0.281-0.156 0.375l-6 5.531c-0.156 0.141-0.359 0.172-0.547 0.094-0.172-0.078-0.297-0.25-0.297-0.453v-3.5h-19.5c-0.281 0-0.5-0.219-0.5-0.5v-3c0-0.281 0.219-0.5 0.5-0.5h19.5v-3.5c0-0.203 0.109-0.375 0.297-0.453 0.188-0.078 0.391-0.047 0.547 0.094l6 5.531c0.094 0.094 0.156 0.234 0.156 0.375z"/></svg></a>
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
